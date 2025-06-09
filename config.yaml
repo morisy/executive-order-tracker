@@ -1,0 +1,45 @@
+title: White House Executive Orders Monitor
+description: Monitors whitehouse.gov for new Executive Orders and archives them
+type: object
+documents:
+  - query
+properties:
+  check_interval_hours:
+    title: Check Interval
+    description: Hours between checks for new orders
+    type: integer
+    default: 24
+  include_proclamations:
+    title: Include Proclamations
+    description: Also monitor Presidential Proclamations
+    type: boolean
+    default: false
+  bluesky_handle:
+    title: Bluesky Handle
+    description: Bluesky account handle for posting updates (optional)
+    type: string
+  bluesky_password:
+    title: Bluesky Password
+    description: Bluesky account password (stored securely)
+    type: string
+    format: password
+  archive_to_ia:
+    title: Archive to Internet Archive
+    description: Automatically archive PDFs to Internet Archive
+    type: boolean
+    default: true
+  upload_to_ipfs:
+    title: Upload to IPFS/Filecoin
+    description: Push archived documents to IPFS and Filecoin for decentralized storage (permanent - cannot be removed)
+    type: boolean
+    default: true
+required: []
+categories:
+  - import
+  - monitor
+eventOptions:
+  name: whitehouse_eo_monitor
+  events:
+    - hourly
+    - daily
+    - weekly
