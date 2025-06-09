@@ -1,8 +1,6 @@
 title: White House Executive Orders Monitor
 description: Monitors whitehouse.gov for new Executive Orders and archives them
 type: object
-documents:
-  - query
 properties:
   include_proclamations:
     title: Include Proclamations
