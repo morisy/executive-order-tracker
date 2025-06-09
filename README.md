@@ -11,13 +11,12 @@ This DocumentCloud Add-On automatically monitors the White House Presidential Ac
 - **Internet Archive Backup**: Optionally triggers archival to Internet Archive
 - **IPFS/Filecoin Storage**: Optionally pushes documents to decentralized storage via IPFS and Filecoin
 - **Bluesky Integration**: Posts announcements about new Executive Orders to Bluesky
-- **Configurable Intervals**: Set how often to check for new orders
+- **Scheduled Monitoring**: Runs on your chosen schedule (hourly, daily, or weekly)
 
 ## Configuration
 
 The add-on supports the following configuration options:
 
-- **Check Interval** (default: 24 hours): How often to check for new orders
 - **Include Proclamations** (default: false): Also monitor Presidential Proclamations
 - **Bluesky Handle**: Your Bluesky account handle for posting updates
 - **Bluesky Password**: Your Bluesky account password (stored securely)

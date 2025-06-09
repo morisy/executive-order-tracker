@@ -4,11 +4,6 @@ type: object
 documents:
   - query
 properties:
-  check_interval_hours:
-    title: Check Interval
-    description: Hours between checks for new orders
-    type: integer
-    default: 24
   include_proclamations:
     title: Include Proclamations
     description: Also monitor Presidential Proclamations

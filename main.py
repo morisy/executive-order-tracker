@@ -23,10 +23,6 @@ class ExecutiveOrdersMonitor(AddOn):
         self.scraper = WhiteHouseScraper()
         self.pdf_generator = PDFGenerator()
         
-        # Check if this is a scheduled run or manual trigger
-        if self._should_skip_check():
-            self.set_message("Skipping check - not enough time since last run")
-            return
         
         # Get configuration
         include_proclamations = self.data.get('include_proclamations', False)
@@ -111,17 +107,6 @@ class ExecutiveOrdersMonitor(AddOn):
         except Exception as e:
             self.set_message(f"Error: {str(e)}")
             raise
-    
-    def _should_skip_check(self) -> bool:
-        """Check if we should skip this run based on configured interval"""
-        last_check = self.state_manager.get_last_check()
-        if not last_check:
-            return False
-        
-        check_interval_hours = self.data.get('check_interval_hours', 24)
-        min_interval = timedelta(hours=check_interval_hours)
-        
-        return (datetime.utcnow() - last_check) < min_interval
     
     def _upload_to_documentcloud(self, order: Dict, pdf_path: str) -> Optional[object]:
         """Upload PDF to DocumentCloud"""
